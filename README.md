@@ -33,6 +33,29 @@ CareerPilot helps users manage job applications, analyze job descriptions, prepa
 - Google Gemini API (Interactions API)
 - pytest
 
+
+## Architecture
+
+```mermaid
+flowchart TD
+    A["MCP Client / Inspector"] <-->|"MCP Protocol"| B["CareerPilot MCP Server"]
+
+    B --> C["Application Management Tools"]
+    B --> D["AI Career Tools"]
+    B --> E["MCP Resources"]
+    B --> F["MCP Prompts"]
+
+    C --> G[("SQLite Database")]
+    E --> G
+
+    D --> H["Gemini API"]
+    F --> B
+
+    G --> I["Application Data"]
+    H --> J["AI-Generated Insights"]
+```
+
+
 ## Project Structure
 
 ```text
@@ -54,7 +77,7 @@ careerpilot-mcp/
 ### 1. Clone the repository
 
 ```bash
-git clone YOUR_GITHUB_REPOSITORY_URL
+git clone https://github.com/imsarangg/Careerpilot-MCP.git
 cd careerpilot-mcp
 ```
 
